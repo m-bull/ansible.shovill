@@ -1,0 +1,5 @@
+---
+
+- name: Clone lighter repo
+  git:
+    repo: "{{ lighter_repo }}"
