@@ -1,0 +1,15 @@
+---
+
+- name: "Download pilon.jar"
+  get_url:
+    url: "{{ pilon_jar_url }}"
+    dest: "{{ pilon_install_dir }}"
+  become: yes
+
+- name: Create pilon helper script
+  template:
+    src: pilon_helper.j2
+    dest: "{{ path_dir }}/pilon"
+    mode: 0755
+  become: yes
+

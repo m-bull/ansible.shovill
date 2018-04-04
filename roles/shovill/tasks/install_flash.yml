@@ -1,0 +1,16 @@
+---
+
+- name: Download FLASH binaries
+  unarchive:
+    src: "{{ flash_archive_url }}"
+    dest: "{{ flash_install_dir }}"
+    remote_src: yes
+    creates: "{{ flash_install_dir }}/FLASH-{{ flash_version }}-Linux-x86_64"
+  become: yes
+
+- name: Link FLASH binary to path
+  file:
+    state: link
+    src: "{{ flash_install_dir }}/FLASH-{{ flash_version }}-Linux-x86_64/flash"
+    dest: "{{ path_dir }}/flash"
+  become: yes

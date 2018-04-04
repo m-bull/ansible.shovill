@@ -2,3 +2,12 @@
 
 - include_tasks: install_spades.yml
 - include_tasks: install_lighter.yml
+- include_tasks: install_flash.yml
+- include_tasks: install_samtools.yml
+- include_tasks: install_bwa.yml
+- include_tasks: install_kmc.yml
+- include_tasks: install_seqtk.yml
+- include_tasks: install_pigz.yml
+- include_tasks: install_pilon.yml
+- include_tasks: install_trimmomatic.yml
+- include_tasks: install_shovill.yml

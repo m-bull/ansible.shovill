@@ -1,0 +1,8 @@
+---
+
+- name: "Download KMC"
+  unarchive:
+    src: "{{ kmc_archive_url }}"
+    dest: "{{ kmc_install_dir }}"
+    remote_src: yes
+  become: yes

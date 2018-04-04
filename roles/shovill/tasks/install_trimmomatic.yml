@@ -1,0 +1,23 @@
+---
+
+- name: "Download trimmomatic archive"
+  unarchive:
+    src: "{{ trimmomatic_archive_url }}"
+    dest: "{{ trimmomatic_install_dir }}"
+    remote_src: yes
+  become: yes
+
+- name: Link trimmomatic jar into PATH
+  file:
+    state: link
+    src: "{{ trimmomatic_install_dir }}/Trimmomatic-{{ trimmomatic_version }}/trimmomatic-{{ trimmomatic_version }}.jar"
+    dest: "{{ path_dir }}/trimmomatic-{{ trimmomatic_version }}.jar"
+  become: yes
+
+- name: Create trimmomatic helper script
+  template:
+    src: trimmomatic_helper.j2
+    dest: "{{ path_dir }}/trimmomatic"
+    mode: 0755
+  become: yes
+

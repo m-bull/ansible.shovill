@@ -1,0 +1,16 @@
+---
+
+- name: Download shovill archive
+  unarchive:
+    src: "{{ shovill_archive_url }}"
+    dest: "{{ shovill_install_dir}}"
+    remote_src: yes
+  become: yes
+
+- name: Link shovill binaries into PATH
+  file:
+    state: link
+    src: "{{ shovill_install_dir }}/shovill-{{ shovill_version }}/bin/shovill"
+    dest: "{{ path_dir }}/shovill"
+  become: yes
+

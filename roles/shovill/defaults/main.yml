@@ -1,7 +1,42 @@
 ---
 
+path_dir: /usr/local/bin
+
 spades_version: 3.11.1
 spades_archive_url: http://spades.bioinf.spbau.ru/release{{ spades_version }}/SPAdes-{{ spades_version }}-Linux.tar.gz
 spades_install_dir: /usr/local/bin
 
-path_dir: /usr/local/bin
+lighter_repo: https://github.com/mourisl/Lighter.git
+
+flash_version: 1.2.11
+flash_archive_url: http://ccb.jhu.edu/software/FLASH/FLASH-{{ flash_version }}-Linux-x86_64.tar.gz
+flash_install_dir: /usr/local/bin
+
+samtools_version: 1.8
+samtools_archive_url: https://github.com/samtools/samtools/releases/download/{{ samtools_version }}/samtools-{{ samtools_version }}.tar.bz2
+samtools_install_dir: /usr/local/bin
+
+bwa_repo: https://github.com/lh3/bwa.git
+
+kmc_version: v3.0.0
+kmc_version_short: 3
+kmc_archive_url: https://github.com/refresh-bio/KMC/releases/download/{{ kmc_version}}/KMC{{ kmc_version_short }}.linux.tar.gz
+kmc_install_dir: /usr/local/bin
+
+seqtk_repo: https://github.com/lh3/seqtk.git
+
+pigz_version: 2.4
+pigz_archive_url: https://zlib.net/pigz/pigz-{{ pigz_version }}.tar.gz
+pigz_install_dir: /usr/local/bin
+
+pilon_version: 1.22
+pilon_jar_url: https://github.com/broadinstitute/pilon/releases/download/v{{ pilon_version }}/pilon-{{ pilon_version}}.jar
+pilon_install_dir: /usr/local/bin
+
+trimmomatic_version: 0.36
+trimmomatic_archive_url: http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-{{ trimmomatic_version }}.zip
+trimmomatic_install_dir: /usr/local/bin
+
+shovill_version: 0.9.0
+shovill_archive_url: https://github.com/tseemann/shovill/archive/v{{ shovill_version }}.tar.gz
+shovill_install_dir: /usr/local/bin

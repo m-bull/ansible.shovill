@@ -1,0 +1,20 @@
+---
+
+- name: Clone seqtk repo
+  git:
+    repo: "{{ seqtk_repo }}"
+    dest: /tmp/seqtk
+
+- name: Make seqtk
+  command: make
+  args:
+    chdir: /tmp/seqtk
+    creates: "{{ path_dir }}/seqtk"
+  become: yes
+
+- name: Copy seqtk into path directory
+  copy:
+    src: /tmp/seqtk/seqtk
+    dest: "{{ path_dir }}/seqtk"
+    mode: 0755
+    remote_src: yes

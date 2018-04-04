@@ -3,3 +3,18 @@
 - name: Clone lighter repo
   git:
     repo: "{{ lighter_repo }}"
+    dest: /tmp/lighter
+
+- name: Make lighter
+  command: make
+  args:
+    chdir: /tmp/lighter
+    creates: "{{ path_dir }}/lighter"
+  become: yes
+
+- name: Copy lighter into path directory
+  copy:
+    src: /tmp/lighter/lighter
+    dest: "{{ path_dir }}/lighter"
+    mode: 0755
+    remote_src: yes

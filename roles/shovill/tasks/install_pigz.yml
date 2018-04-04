@@ -1,0 +1,27 @@
+---
+
+- name: Download pigz archive
+  unarchive:
+    src: "{{ pigz_archive_url }}"
+    dest: "{{ pigz_install_dir }}"
+    remote_src: yes
+  become: yes
+
+- name: Make pigz
+  command: make
+  args:
+    chdir: "{{ pigz_install_dir }}/pigz-{{ pigz_version }}"
+    creates: "{{ path_dir }}/pigz-{{ pigz_version }}/pigz"
+  become: yes
+
+
+- name: Link pigz binaries to path
+  file:
+    state: link
+    src: "{{ pigz_install_dir }}/pigz-{{ pigz_version }}/{{ item }}"
+    dest: "{{ path_dir }}/{{ item }}"
+  with_items:
+    - pigz
+    - unpigz
+  become: yes
+
