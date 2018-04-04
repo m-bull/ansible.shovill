@@ -3,7 +3,7 @@
 - name: "Download pilon.jar"
   get_url:
     url: "{{ pilon_jar_url }}"
-    dest: "{{ pilon_install_dir }}"
+    dest: "{{ pilon_install_dir }}/pilon-{{ pilon_version }}.jar"
   become: yes
 
 - name: Create pilon helper script
