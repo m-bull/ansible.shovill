@@ -1,0 +1,16 @@
+---
+
+- name: Download SPAdes binaries
+  unarchive:
+    src: "{{ spades_archive_url }}"
+    dest: "{{ spades_install_dir }}"
+    remote_src: yes
+    creates: "{{ spades_install_dir }}/SPAdes-{{ spades_version }}-Linux/"
+  become: yes
+
+- name: Link SPAdes binaries into PATH
+  file:
+    state: link
+    src: "{{ spades_install_dir }}/SPAdes-{{ spades_version }}-Linux/bin/spades.py"
+    dest: "{{ path_dir }}/spades.py"
+  become: yes

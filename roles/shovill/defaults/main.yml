@@ -1,0 +1,7 @@
+---
+
+spades_version: 3.11.1
+spades_archive_url: http://spades.bioinf.spbau.ru/release{{ spades_version }}/SPAdes-{{ spades_version }}-Linux.tar.gz
+spades_install_dir: /usr/local/bin
+
+path_dir: /usr/local/bin
