@@ -1,0 +1,16 @@
+---
+
+- name: Install CentOS packages required for building Shovill dependencies
+  yum:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  with_items:
+    - bzip2
+    - gcc-c++
+    - bzip2-devel
+    - ncurses-devel
+    - java-1.8.0-openjdk-headless
+    - unzip
+    - xz-devel
+    - zlib-devel
