@@ -10,6 +10,24 @@
     - libncurses5-dev
     - liblz-dev
     - liblzma-dev
-    - openjdk-9-jdk-headless
     - unzip
     - zlib1g-dev
+
+- name: "Install packages specific to Ubuntu 16.04"
+  apt:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  when: ansible_distribution_version == '16.04'
+  with_items:
+    - openjdk-9-jdk-headless
+    
+
+- name: "Install packages specific to Ubuntu 18.04"
+  apt:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  when: ansible_distribution_version == '18.04'
+  with_items:
+    - openjdk-11-jdk-headless
